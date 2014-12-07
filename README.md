@@ -7,23 +7,22 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 - [Security](#security)
   - [Patch Rails Security Vulnerabilities](#patch-rails-security-vulnerabilities)
   - [Force SSL](#force-ssl)
-  - [Documentation](#documentation)
-    - [Kickstart New Developers](#kickstart-new-developers)
+- [Documentation](#documentation)
+  - [Kickstart New Developers](#kickstart-new-developers)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
 
+# Security
 
-## Security
-
-### Patch Rails Security Vulnerabilities
+## Patch Rails Security Vulnerabilities
 
 Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`. Ensure the version of Rails you're on is still actively supported and patched.
 
-### Force SSL
+## Force SSL
 
 ```ruby
-# config/environments/production.rb
+config/environments/production.rb
 config.force_ssl = true
 ```
 
@@ -31,9 +30,10 @@ The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not ava
 
 (If your app is hosted on an *.herokuapp.com domain, you get to use their SSL certificate for free, i.e. https://your-app.herokuapp.com just works.)
 
-## Documentation
 
-### Kickstart New Developers
+# Documentation
+
+## Kickstart New Developers
 
 Include up-to-date instructions for how new developers can get started with setting up, running the app and working on it.
 
