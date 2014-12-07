@@ -16,7 +16,7 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 ### Patch Rails Security Vulnerabilities
 
-Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`.
+Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`. Ensure the version of Rails you're on is still actively supported and patched.
 
 ### Force SSL
 
