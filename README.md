@@ -60,11 +60,11 @@ The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not ava
 
 ## Use HTTP Status Code Symbols
 
-Try to avoid magic numbers, favor Rails' symbols for specifying statuses as they describe the purpose of the status code.
+Try to avoid magic numbers. Favor symbols for specifying statuses as they describe the purpose.
 
 ```ruby
-render json: new_user, status: 200, root: false # Avoid magic numbers
-render json: new_user, status: :created, root: false # Good!
+render json: new_user, status: 200 # Avoid magic numbers
+render json: new_user, status: :created  # Good!
 ```
 
 status code | rails symbol
