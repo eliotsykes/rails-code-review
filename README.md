@@ -9,6 +9,8 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Exposed Secrets](#exposed-secrets)
   - [Gem Versions](#gem-versions)
   - [Force SSL](#force-ssl)
+- [Controllers](#controllers)
+  - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
 - [Presentation & Accessibility](#presentation--accessibility)
   - [Good Page Titles](#good-page-titles)
 - [Database](#database)
@@ -53,6 +55,25 @@ The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not ava
 
 (If your app is hosted on an *.herokuapp.com domain, you get to use their SSL certificate for free, i.e. https://your-app.herokuapp.com just works.)
 
+
+# Controllers
+
+## Use HTTP Status Code Symbols
+
+Try to avoid magic numbers, favor Rails' symbols for specifying statuses as they describe the purpose of the status code.
+
+```ruby
+render json: new_user, status: 200, root: false # Avoid magic numbers
+render json: new_user, status: :created, root: false # Good!
+```
+
+status code | rails symbol
+------------|-------------
+200 | :ok
+201 | :created
+422 | :unprocessable_entity
+
+More symbol values available from the individual pages indexed here: http://httpstatus.es/
 
 # Presentation & Accessibility
 
