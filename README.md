@@ -15,6 +15,10 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Accurate Page Titles](#accurate-page-titles)
 - [Database](#database)
   - [Check `schema.rb` is in Good Shape](#check-schemarb-is-in-good-shape)
+- [Performance](#performance)
+  - [Compress Assets](#compress-assets)
+  - [Serve Assets via a CDN](#serve-assets-via-a-cdn)
+  - [Consider Using a CDN for Every Request](#consider-using-a-cdn-for-every-request)
 - [Version Control](#version-control)
   - [Have a Healthy Commit History](#have-a-healthy-commit-history)
 - [Documentation](#documentation)
@@ -94,6 +98,21 @@ Read through `db/schema.rb`.
 - Is it indexed appropriately?
 - Is the database normalized (i.e. has no duplicate or redundant data)?
 - If the database is denormalized, is it for a good reason (e.g. performance)?
+
+
+# Performance
+
+## Compress Assets
+
+Serve assets (e.g. JavaScript, CSS, font, image files) compressed to clients that can handle them.
+
+## Serve Assets via a CDN
+
+See config option `config.asset_host`.
+
+## Consider Using a CDN for Every Request
+
+Consider fronting the entire app with a CDN if its requirements allow.
 
 
 # Version Control
