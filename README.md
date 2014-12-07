@@ -63,7 +63,7 @@ The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not ava
 Try to avoid magic numbers. Favor symbols for specifying statuses as they describe the purpose.
 
 ```ruby
-render json: new_user, status: 200 # Avoid magic numbers
+render json: new_user, status: 201 # Avoid magic numbers
 render json: new_user, status: :created  # Good!
 ```
 
