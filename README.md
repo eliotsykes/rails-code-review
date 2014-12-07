@@ -69,9 +69,9 @@ render json: new_user, status: :created  # Good!
 
 status code | rails symbol
 ------------|-------------
-200 | :ok
-201 | :created
-422 | :unprocessable_entity
+200 | `:ok`
+201 | `:created`
+422 | `:unprocessable_entity`
 
 More symbol values available from the individual pages indexed here: http://httpstatus.es/
 
