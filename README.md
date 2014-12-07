@@ -5,18 +5,18 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
 - [Security](#security)
-  - [Patch Rails Security Vulnerabilities](#patch-rails-security-vulnerabilities)
-  - [Exposed Secrets](#exposed-secrets)
-  - [Gem Versions](#gem-versions)
+  - [Keep Rails Vulnerabilities Patched](#keep-rails-vulnerabilities-patched)
+  - [Purge Exposed Secrets](#purge-exposed-secrets)
+  - [Keep Gem Versions Updated](#keep-gem-versions-updated)
   - [Force SSL](#force-ssl)
 - [Controllers](#controllers)
   - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
 - [Presentation & Accessibility](#presentation--accessibility)
-  - [Good Page Titles](#good-page-titles)
+  - [Accurate Page Titles](#accurate-page-titles)
 - [Database](#database)
-  - [Healthy schema.rb](#healthy-schemarb)
+  - [Check `schema.rb` is in Good Shape](#check-schemarb-is-in-good-shape)
 - [Version Control](#version-control)
-  - [Tidy Commit History](#tidy-commit-history)
+  - [Have a Healthy Commit History](#have-a-healthy-commit-history)
 - [Documentation](#documentation)
   - [Kickstart New Developers](#kickstart-new-developers)
 - [Contributors](#contributors)
@@ -26,23 +26,23 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 # Security
 
-## Patch Rails Security Vulnerabilities
+## Keep Rails Vulnerabilities Patched
 
 Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`. Ensure the version of Rails you're on is still actively supported and patched.
 
-## Exposed Secrets
+## Purge Exposed Secrets
 
 Have any secrets **ever** been exposed? Usually this happens when `secrets.yml` has been committed to the repository.
 
 Any secrets that have been exposed should not be used any longer. 
 
-An exposed secret_token can allow an attacker to gain command line access to your server via your Rails app.
+An exposed `secret_token` can allow an attacker to gain command line access to your server via your Rails app.
 
 `rake secret` can help with generating new secrets. Ensure these are updated on any affected environments (production, staging, etc.).
 
-## Gem Versions
+## Keep Gem Versions Updated
 
-Run `bundle outdated` to check for old gem versions. Decide appropriate next steps on a gem-by-gem basis.
+Run `bundle outdated` to check for old gem versions. Decide appropriate next steps on a gem-by-gem basis. Check the CHANGELOG for each gem. Update gems that have had security flaws fixed.
 
 ## Force SSL
 
@@ -77,7 +77,7 @@ More symbol values available from the individual pages indexed here: http://http
 
 # Presentation & Accessibility
 
-## Good Page Titles
+## Accurate Page Titles
 
 Are the page titles specific to the page? Page titles are useful to humans and search engine robots.
 
@@ -86,7 +86,7 @@ Consider using the [`content_for`](http://api.rubyonrails.org/classes/ActionView
 
 # Database
 
-## Healthy schema.rb 
+## Check `schema.rb` is in Good Shape
 
 Read through `db/schema.rb`. 
 
@@ -98,7 +98,7 @@ Read through `db/schema.rb`.
 
 # Version Control
 
-## Tidy Commit History
+## Have a Healthy Commit History
 
 - Are commits focused, small, and made with descriptive, relevant messages?
 - Are bugfix and feature branches used?
