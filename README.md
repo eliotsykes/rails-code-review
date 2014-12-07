@@ -47,7 +47,7 @@ Run `bundle outdated` to check for old gem versions. Decide appropriate next ste
 ## Force SSL
 
 ```ruby
-config/environments/production.rb
+# config/environments/production.rb
 config.force_ssl = true
 ```
 
