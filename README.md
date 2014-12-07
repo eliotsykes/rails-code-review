@@ -6,7 +6,12 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 - [Security](#security)
   - [Patch Rails Security Vulnerabilities](#patch-rails-security-vulnerabilities)
+  - [Gem Versions](#gem-versions)
   - [Force SSL](#force-ssl)
+- [Presentation & Accessibility](#presentation--accessibility)
+  - [Good Page Titles](#good-page-titles)
+- [Database](#database)
+  - [Healthy schema.rb](#healthy-schemarb)
 - [Documentation](#documentation)
   - [Kickstart New Developers](#kickstart-new-developers)
 - [Contributors](#contributors)
@@ -19,6 +24,10 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`. Ensure the version of Rails you're on is still actively supported and patched.
 
+## Gem Versions
+
+Run `bundle outdated` to check for old gem versions. Decide appropriate next steps on a gem-by-gem basis.
+
 ## Force SSL
 
 ```ruby
@@ -30,6 +39,26 @@ The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not ava
 
 (If your app is hosted on an *.herokuapp.com domain, you get to use their SSL certificate for free, i.e. https://your-app.herokuapp.com just works.)
 
+
+# Presentation & Accessibility
+
+## Good Page Titles
+
+Are the page titles specific to the page? Page titles are useful to humans and search engine robots.
+
+Consider using the [`content_for`](http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#method-i-content_for) helper or the [flutie](https://github.com/thoughtbot/flutie) gem.
+
+
+# Database
+
+## Healthy schema.rb 
+
+Read through `db/schema.rb`. 
+
+- Do the tables and columns have good names?
+- Is it indexed appropriately?
+- Is the database normalized (i.e. has no duplicate or redundant data)?
+- If the database is denormalized, is it for a good reason (e.g. performance)?
 
 # Documentation
 
