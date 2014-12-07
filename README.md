@@ -12,6 +12,8 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Good Page Titles](#good-page-titles)
 - [Database](#database)
   - [Healthy schema.rb](#healthy-schemarb)
+- [Version Control](#version-control)
+  - [Tidy Commit History](#tidy-commit-history)
 - [Documentation](#documentation)
   - [Kickstart New Developers](#kickstart-new-developers)
 - [Contributors](#contributors)
@@ -59,6 +61,15 @@ Read through `db/schema.rb`.
 - Is it indexed appropriately?
 - Is the database normalized (i.e. has no duplicate or redundant data)?
 - If the database is denormalized, is it for a good reason (e.g. performance)?
+
+
+# Version Control
+
+## Tidy Commit History
+
+- Are commits focused, small, and made with descriptive, relevant messages?
+- Are bugfix and feature branches used?
+
 
 # Documentation
 
