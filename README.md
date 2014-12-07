@@ -51,7 +51,7 @@ config/environments/production.rb
 config.force_ssl = true
 ```
 
-The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not available if your site is not served over SSL. This is the *first* (not only) step you can take towards protecting the good people using your app.
+The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not available if your site is not served over SSL. This is one of many steps you will want to take towards protecting the good people using your app.
 
 (If your app is hosted on an *.herokuapp.com domain, you get to use their SSL certificate for free, i.e. https://your-app.herokuapp.com just works.)
 
