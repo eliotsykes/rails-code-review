@@ -6,6 +6,7 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 - [Security](#security)
   - [Patch Rails Security Vulnerabilities](#patch-rails-security-vulnerabilities)
+  - [Exposed Secrets](#exposed-secrets)
   - [Gem Versions](#gem-versions)
   - [Force SSL](#force-ssl)
 - [Presentation & Accessibility](#presentation--accessibility)
@@ -20,11 +21,22 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 <!-- /MarkdownTOC -->
 
+
 # Security
 
 ## Patch Rails Security Vulnerabilities
 
 Update Rails to the latest patch version. Edit the rails version in the Gemfile then run `bundle install`. Ensure the version of Rails you're on is still actively supported and patched.
+
+## Exposed Secrets
+
+Have any secrets **ever** been exposed? Usually this happens when `secrets.yml` has been committed to the repository.
+
+Any secrets that have been exposed should not be used any longer. 
+
+An exposed secret_token can allow an attacker to gain command line access to your server via your Rails app.
+
+`rake secret` can help with generating new secrets. Ensure these are updated on any affected environments (production, staging, etc.).
 
 ## Gem Versions
 
