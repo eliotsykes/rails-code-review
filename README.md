@@ -11,6 +11,7 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Force SSL](#force-ssl)
 - [Controllers](#controllers)
   - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
+  - [Appropriate HTTP Verbs & Status Codes](#appropriate-http-verbs--status-codes)
 - [Presentation & Accessibility](#presentation--accessibility)
   - [Accurate Page Titles](#accurate-page-titles)
 - [Database](#database)
@@ -85,6 +86,11 @@ status code | rails symbol
 422 | `:unprocessable_entity`
 
 More symbol values available from the individual pages indexed here: http://httpstatus.es/
+
+## Appropriate HTTP Verbs & Status Codes
+
+Controller actions should be routed with appropriate HTTP verbs (e.g. POST for `create`) and respond with status codes that represent the result of the request (e.g. `201 Created` for a successful `create` action).
+
 
 # Presentation & Accessibility
 
