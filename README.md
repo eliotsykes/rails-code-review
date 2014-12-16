@@ -19,6 +19,7 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Compress Assets](#compress-assets)
   - [Serve Assets via a CDN](#serve-assets-via-a-cdn)
   - [Consider Using a CDN for Every Request](#consider-using-a-cdn-for-every-request)
+  - [Keep App Awake](#keep-app-awake)
 - [Version Control](#version-control)
   - [Have a Healthy Commit History](#have-a-healthy-commit-history)
 - [Documentation](#documentation)
@@ -113,6 +114,16 @@ See config option `config.asset_host`.
 ## Consider Using a CDN for Every Request
 
 Consider fronting the entire app with a CDN if its requirements allow.
+
+## Keep App Awake
+
+If you've noticed the first request to your app after you haven't visited it in a while is slow to respond, it may be due to Heroku (and similar hosts) putting apps to sleep.
+
+To help the host reduce their costs, they may put an app is put to sleep if a request isn't made on it for a certain length of time (1 hour on Heroku at time of writing I believe).
+
+The app is still available, it just takes a while for that first request to be responded to while the host starts up (wakes up) the app after its nap.
+
+To keep your app awake, it just needs to receive a request regularly. For Heroku, the New Relic add-on can be setup to do this for free, and is I suspect this is the most common solution. Alternatively, use [Kaffeine](http://kaffeine.herokuapp.com/). It's quicker to setup than New Relic and is also free.
 
 
 # Version Control
