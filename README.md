@@ -24,6 +24,12 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Have a Healthy Commit History](#have-a-healthy-commit-history)
 - [Documentation](#documentation)
   - [Kickstart New Developers](#kickstart-new-developers)
+- [Continuous Integration](#continuous-integration)
+  - [Run All Tests Frequently](#run-all-tests-frequently)
+  - [Monitor & Handle Failures](#monitor--handle-failures)
+- [Deployment](#deployment)
+  - [Simple, Repeatable Deploys](#simple-repeatable-deploys)
+  - [Minimize Manual Steps](#minimize-manual-steps)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
@@ -141,6 +147,18 @@ To keep your app awake, it just needs to receive a request regularly. For Heroku
 Include up-to-date instructions for how new developers can get started with setting up, running the app and working on it.
 
 Usually these instructions are in `README.md`.
+
+# Continuous Integration
+
+## Run All Tests Frequently
+
+## Monitor & Handle Failures
+
+# Deployment
+
+## Simple, Repeatable Deploys
+
+## Minimize Manual Steps
 
 ---
 
