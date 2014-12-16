@@ -12,6 +12,7 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 - [Controllers](#controllers)
   - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
   - [Appropriate HTTP Verbs & Status Codes](#appropriate-http-verbs--status-codes)
+  - [Redirect to Prevent Duplicate Form Submissions](#redirect-to-prevent-duplicate-form-submissions)
 - [Presentation & Accessibility](#presentation--accessibility)
   - [Accurate Page Titles](#accurate-page-titles)
 - [Database](#database)
@@ -89,7 +90,11 @@ More symbol values available from the individual pages indexed here: http://http
 
 ## Appropriate HTTP Verbs & Status Codes
 
-Controller actions should be routed with appropriate HTTP verbs (e.g. POST for `create`) and respond with status codes that represent the result of the request (e.g. `201 Created` for a successful `create` action).
+Controller actions should be routed with appropriate HTTP verbs (e.g. POST for `create`) and respond with status codes that represent the result of the request (e.g. `201 Created` for a successful `create` action API response).
+
+## Redirect to Prevent Duplicate Form Submissions
+
+When a form submission successfully completes, the controller action should redirect to another action. By redirecting the user to another URL, they are prevented from accidentally resubmitting the form if they hit refresh. This only applies to HTML responses, it does not apply to AJAX or API responses. AJAX and API responses should respond with the most appropriate HTTP status code (see above).
 
 
 # Presentation & Accessibility
