@@ -4,6 +4,8 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
+- [If Statements](#if-statements)
+  - [Avoid `== boolean`](#avoid--boolean)
 - [Security](#security)
   - [Keep Rails Vulnerabilities Patched](#keep-rails-vulnerabilities-patched)
   - [Purge Exposed Secrets](#purge-exposed-secrets)
@@ -35,6 +37,25 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
+
+
+# If Statements
+
+## Avoid `== boolean`
+
+`== true` and `== false` aren't needed in `if` statements:
+
+```ruby
+if valid == true # Works
+
+if valid # Works, more conventional
+
+...
+
+if valid == false # Works
+
+if !valid # Works, more conventional
+```
 
 
 # Security
