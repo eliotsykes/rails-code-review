@@ -11,6 +11,10 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Purge Exposed Secrets](#purge-exposed-secrets)
   - [Keep Gem Versions Updated](#keep-gem-versions-updated)
   - [Force SSL](#force-ssl)
+- [Gems](#gems)
+  - [Group Gems Appropriately in `Gemfile`](#group-gems-appropriately-in-gemfile)
+  - [Remove Unused Gems from `Gemfile`](#remove-unused-gems-from-gemfile)
+  - [Track `Gemfile.lock` in Version Control](#track-gemfilelock-in-version-control)
 - [Controllers](#controllers)
   - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
   - [Appropriate HTTP Verbs & Status Codes](#appropriate-http-verbs--status-codes)
@@ -88,6 +92,23 @@ config.force_ssl = true
 The web is moving towards TLS/SSL-on everywhere. Some HTML5 features are not available if your site is not served over SSL. This is one of many steps you will want to take towards protecting the good people using your app.
 
 (If your app is hosted on an *.herokuapp.com domain, you get to use their SSL certificate for free, i.e. https://your-app.herokuapp.com just works.)
+
+
+# Gems
+
+## Group Gems Appropriately in `Gemfile`
+
+- Testing gems go in the `test` group, unless...
+- ...they have generators, then they go in the `test` and `development` groups
+- Production-specific gems (sometimes pg & rails_12factor gems) go in the `production` group
+
+## Remove Unused Gems from `Gemfile`
+
+Remove clutter from `Gemfile` by deleting any unused gems from the file.
+
+## Track `Gemfile.lock` in Version Control
+
+`Gemfile.lock` specifies the versions of gems to be used with the app across all environments. To increase consistency across environments, and reduce the likelihood for being surprised by version-related issues, then `Gemfile.lock` ought to be tracked under version control.
 
 
 # Controllers
