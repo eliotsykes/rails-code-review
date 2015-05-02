@@ -16,6 +16,8 @@ An evolving set of guidelines & supporting reasons to consider when code reviewi
   - [Remove Unused Gems from `Gemfile`](#remove-unused-gems-from-gemfile)
   - [Track `Gemfile.lock` in Version Control](#track-gemfilelock-in-version-control)
 - [Controllers](#controllers)
+  - [Minimize variable scope](#minimize-variable-scope)
+  - [Avoid class variables](#avoid-class-variables)
   - [Use HTTP Status Code Symbols](#use-http-status-code-symbols)
   - [Appropriate HTTP Verbs & Status Codes](#appropriate-http-verbs--status-codes)
   - [Redirect to Prevent Duplicate Form Submissions](#redirect-to-prevent-duplicate-form-submissions)
@@ -112,6 +114,21 @@ Remove clutter from `Gemfile` by deleting any unused gems from the file.
 
 
 # Controllers
+
+## Minimize variable scope
+
+- Favor local variables over instance variables.
+- Only use instance variables if the action renders a template that needs that variable. In controllers, instance variables are a mechanism for exposing variables to the rendered template.
+
+Minimizing variable scope tends to help Ruby minimize its memory usage. For example, the memory allocated to local variables is usually needed for a shorter time than the memory allocated to instance variables.
+
+Another benefit of minimizing variable scope is that variables are less likely to have naming collisions leading to unexpected buggy behaviour.
+
+## Avoid class variables
+
+Unless you're *absolutely certain* a class variable is what you need in a controller, you probably don't want to use one. 
+
+All requests, from all users, that a controller receives will share the exact same class variable and any value assigned to it by one request may be overwritten by another request at an undesirable, unpredictable time.
 
 ## Use HTTP Status Code Symbols
 
